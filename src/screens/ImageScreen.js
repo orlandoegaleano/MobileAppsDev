@@ -5,10 +5,10 @@ import ImageDetail from "../components/ImageDetail";
 const ImageScreen = () => {
     return (
         <View>
-            <Text>Image Screen</Text>
-            <ImageDetail title="Doughnut" imageSource={require('../../assets/doughnut.jpeg')}/>
-            <ImageDetail title="Sandwhich" imageSource={require('../../assets/sandwhich.jpeg')}/>
-            <ImageDetail title="Coffee" imageSource={require('../../assets/coffee.jpeg')}/>
+            <Text>Brunch Menu</Text>
+            <ImageDetail title="Doughnut" price="1.50" imageSource={require('../../assets/doughnut.jpeg')}/>
+            <ImageDetail title="Breakfast Sandwhich" price="5.50" imageSource={require('../../assets/sandwhich.jpeg')}/>
+            <ImageDetail title="Coffee" price="3.50" imageSource={require('../../assets/coffee.jpeg')}/>
         </View>
     );
 }
