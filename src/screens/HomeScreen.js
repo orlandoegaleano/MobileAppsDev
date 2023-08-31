@@ -20,9 +20,19 @@ const HomeScreen = ({navigation}) => {
         />
         
 
-        <TouchableOpacity onPress={() => {navigation.navigate("List"); console.log("Now the TouchableOpacity component has been pressed!")}}>
+        {/* <TouchableOpacity onPress={() => {navigation.navigate("List"); console.log("Now the TouchableOpacity component has been pressed!")}}>
           <Text>ListScreen</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+
+        <Button
+        onPress = {() => {navigation.navigate("List")}}
+        title="List Screen"
+        />
+
+        <Button
+        onPress={() => {navigation.navigate("Image")}}
+        title="Image Screen"
+        />
 
       </View>
 };

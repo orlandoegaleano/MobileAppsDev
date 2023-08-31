@@ -15,9 +15,10 @@ const ListScreen = () => {
         data={teacherList} 
         renderItem={({item}) =>{
             return <Text> {item.name} </Text>
-        }}
-        />
-        )
+          }
+        }
+      />
+    )
 
 };
 
