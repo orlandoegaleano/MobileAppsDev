@@ -1,32 +1,48 @@
 import React from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 
 
 
 const ImageDetail = (props) => {
     console.log(props);
-    console.log("This is getting hit");
 
-    return (
-        <View>
-            <Image style={styles.circleImage} source={props.imageSource}/>
-            <Text>{props.title}</Text>
-            <Text>{props.price}</Text>
-        </View>    
+
+    return ( 
+        <TouchableOpacity onPress={() => {console.log("Why did you press that?!")}}>
+            <View style={styles.container}>                
+                    <Image style={styles.circleImage} source={props.imageSource}/>
+                    <Text style={styles.title}>{props.title}</Text>
+                    <Text style={styles.price}>{props.price}</Text>              
+            </View>
+        </TouchableOpacity>     
+        
     );
 }
 
 const styles = StyleSheet.create({
-    image: {
-        width: 150,
-        height: 150,
+    container: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 10,
+        backgroundColor: 'lightgrey',
+        justifyContent: 'space-between',
+        width: '100%',
     },
     circleImage: {
-        width: 100,  // or the desired diameter of your circle
-        height: 100, // same as the width
-        borderRadius: 50,  // half the width and height
-      }
+        width: 100,  
+        height: 100, 
+        borderRadius: 50,         
+    },
+    title:{
+        fontSize: 20,
+    },
+    price: {
+        marginRight: 10,
+        fontWeight: 'bold',
+    },
+    
+
 });
 
 export default ImageDetail

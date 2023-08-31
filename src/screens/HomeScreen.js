@@ -10,7 +10,7 @@ const HomeScreen = ({navigation}) => {
           Navigation Page {'\n'}
         </Text>   
         <Text style={styles.smallerText}>
-          Orlando Mobile Dev Class App         
+          Orlando's Mobile Dev Class App         
         </Text>
 
 
