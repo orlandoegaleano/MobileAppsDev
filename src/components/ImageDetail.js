@@ -20,14 +20,12 @@ const ImageDetail = (props) => {
 const styles = StyleSheet.create({
     image: {
         width: 150,
-        height: 150
+        height: 150,
     },
     circleImage: {
-        width: 50,  // or the desired diameter of your circle
-        height: 50, // same as the width
-        borderRadius: 25,  // half the width and height
-        position: 'absolute', 
-        resizeMode: 'cover',
+        width: 100,  // or the desired diameter of your circle
+        height: 100, // same as the width
+        borderRadius: 50,  // half the width and height
       }
 });
 
