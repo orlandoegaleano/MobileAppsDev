@@ -16,9 +16,12 @@ const ColorScreen = () => {
     console.log(colors);
 
     return (
-    <View backgroundColor='rgb(0,0,0)'>
+    <View style={styles.container}>
 
         <Button title="Add color" onPress={()=>{
+
+            //creating a new array that contains the elements from the old 'colors' array using '...'
+            //then adding the new array of random colors to the new 'colors' array
             setColors([...colors, randomRgb()])
         }}/>
 
@@ -49,6 +52,9 @@ const randomRgb = () => {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        backgroundColor: 'rgb(0,0,0)',
+    },
     colorBox: {
         width: itemWidth,
         height: 100,
