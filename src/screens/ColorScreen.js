@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import {Text, Button, View, StyleSheet, FlatList, Dimensions } from "react-native";
 
 
- //Using Dimensions to get the screen dimesions of the device being used in order to determine how many columns can be displayed.
- const screenWidth = Dimensions.get('window').width;
- const itemWidth = 100; // or whatever your item width is
- const itemMargin = 10; // margin for your items
- const itemsPerRow = Math.floor(screenWidth / (itemWidth + itemMargin * 2));
+//Using Dimensions to get the screen dimesions of the device being used in order to determine how many columns can be displayed.
+const screenWidth = Dimensions.get('window').width;
+const boxWidth = 100; 
+const boxMargin = 10; 
+const maxBoxesInRow = Math.floor(screenWidth / (boxWidth + boxMargin * 2));
 
 const ColorScreen = () => {
 
@@ -33,7 +33,7 @@ const ColorScreen = () => {
                     <View style={[styles.colorBox, {backgroundColor: item}]}>
                     </View>                  
                 )}
-                numColumns={itemsPerRow} 
+                numColumns={maxBoxesInRow} 
             />
         </View>
 
@@ -56,9 +56,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(0,0,0)',
     },
     colorBox: {
-        width: itemWidth,
+        width: boxWidth,
         height: 100,
-        margin: itemMargin,      
+        margin: boxMargin,      
 
     },
 });
