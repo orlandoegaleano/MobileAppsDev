@@ -9,8 +9,8 @@ const HomeScreen = ({navigation}) => {
         <Text style={styles.text}>
           Navigation Page {'\n'}
         </Text>   
-        <Text style={styles.smallerText}>
-          Orlando's Mobile Dev Class App         
+        <Text style={[styles.text, styles.smallerText]}>
+          Orlando's Class Lectures Application        
         </Text>
 
 
