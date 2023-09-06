@@ -18,12 +18,17 @@ const CounterScreen = () => {
 
         }}/>
 
-        <Text>Current count:{counter} </Text>  
+        <Text style={styles.text}>Current count:{counter} </Text>  
 
     </View>  
     )
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    text: {
+        fontSize: 50,
+        textAlign: 'center',
+    },
+});
 
 export default CounterScreen
