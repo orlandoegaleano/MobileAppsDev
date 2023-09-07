@@ -5,14 +5,13 @@ import {Text, Button, View, StyleSheet, FlatList, Dimensions } from "react-nativ
 //Using Dimensions to get the screen dimesions of the device being used in order to determine how many columns can be displayed.
 const screenWidth = Dimensions.get('window').width;
 const boxWidth = 100; 
-const boxMargin = 10; 
+const boxMargin = 1; 
 const maxBoxesInRow = Math.floor(screenWidth / (boxWidth + boxMargin * 2));
 
-const ColorScreen = () => {
-
-   
+const ColorScreen = () => {   
    
     const [colors, setColors] = useState([]);
+
     console.log(colors);
 
     return (
