@@ -7,10 +7,11 @@ const HomeScreen = ({navigation}) => {
   return <View>
 
         <Text style={styles.text}>
-          Navigation Page {'\n'}
+        Orlando's Class Lectures Application        
+
         </Text>   
         <Text style={[styles.text, styles.smallerText]}>
-          Orlando's Class Lectures Application        
+        Navigation Page           
         </Text>
 
 
