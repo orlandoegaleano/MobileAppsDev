@@ -2,21 +2,30 @@ import React, { useState, useReducer } from "react";
 import {Text, Button, View, StyleSheet, FlatList, Dimensions, TouchableWithoutFeedback } from "react-native";
 import ColorCounter from "../components/ColorCounter";
 
-const COLOR_INCREMENT = 20;
+const COLOR_INCREMENT = 55;
 
 const reducer = (state, action) => {
     //state looks like: {red: number, green: number, blue: number}
-    //action looks like: {colorToChange: "red" || "green" || "blue" , amount: 20 || -20}
+    //action looks like: {type: "red" || "green" || "blue" , payload: 20 || -20}
 
-    //ENDED HERE before getting to define colorToChange during lecture
+    //ENDED HERE before getting to define type during lecture
     
-    switch(action.colorToChange){
+    switch(action.type){
         case 'red':
-            return {...state, red: state.red + action.amount};
-        case ' blue':
-            return{...state, green: state.green + action.amount};
+            if(state.red + action.payload < 0 || state.red + action.payload > 255){
+                return state
+            }
+            return {...state, red: state.red + action.payload};
         case 'green':
-            return{...state, blue: state.blue + action.amount};
+            if(state.green + action.payload < 0 || state.green + action.payload > 255){
+                return state
+            }
+            return{...state, green: state.green + action.payload};
+        case 'blue':
+            if(state.blue + action.payload < 0 || state.blue + action.payload > 255){
+                return state
+            }
+            return{...state, blue: state.blue + action.payload};
         default:
             return state;
     }
@@ -25,47 +34,30 @@ const reducer = (state, action) => {
 
 
 const ColorAdjusterScreen = () => {
-
+    //first is a reducer function we will define, second piece is the state data
     const [state, dispatch] = useReducer(reducer, {red: 0, green: 0, blue: 0});
 
+    const {red, green, blue} = state;
+    const colorString = `rgb(${red}, ${green}, ${blue})`;
 
-    // const [red, setRed] = useState(0);
-    // const [green, setGreen] = useState(0);
-    // const [blue, setBlue] = useState(0);
-    let colorString = `rgb(${red}, ${green}, ${blue})`;
-
-    // const setColor = (color, change) => {
-    //     if(color === 'red'){
-    //         red + change < 0 || red + change > 255 ? null: setRed(red + change)
-    //     }
-    //     if(color === 'green'){
-    //         green + change < 0 || green + change > 255 ? null: setRed(green + change)
-    //     }
-    //     if(color === 'blue'){
-    //         blue + change < 0 || blue + change > 255 ? null: setRed(blue + change)
-    //     }
-    // }
-
-   return( 
-        <View>
-
-            
+    return( 
+        <View>           
 
             <Text>Color Adjuster Screen</Text>
             
             <ColorCounter color="Red"
-            onIncrease={() => {}}
-            onDecrease={() => {}}
+            onIncrease={() => {dispatch({type: "red", payload: COLOR_INCREMENT});}}
+            onDecrease={() => {dispatch({type: "red", payload: -1 * COLOR_INCREMENT});}}
             />
            
             <ColorCounter color="Green"
-            onIncrease={() => {}}
-            onDecrease={() => {}}
+            onIncrease={() => {dispatch({type: "green", payload: COLOR_INCREMENT});}}
+            onDecrease={() => {dispatch({type: "green", payload: -1 * COLOR_INCREMENT});}}
             />
 
             <ColorCounter color="Blue"
-            onIncrease={() => {}}
-            onDecrease={() => {}}
+            onIncrease={() => {dispatch({type: "blue", payload: COLOR_INCREMENT});}}
+            onDecrease={() => {dispatch({type: "blue", payload: -1 * COLOR_INCREMENT});}}
             />
 
             <View style = {{height: 100, width: 100, backgroundColor: colorString}}>
