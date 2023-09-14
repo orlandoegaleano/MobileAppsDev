@@ -51,6 +51,11 @@ const HomeScreen = ({navigation}) => {
         title="Color Adjuster Screen"
         />
 
+        <Button
+        onPress={() => {navigation.navigate("Text")}}
+        title="Text Input Screen"
+        />
+
       </View>
 };
 
